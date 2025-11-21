@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>saltnpepper</title>
+
+<style>
+    body{
+        margin:0;
+        font-family:Arial;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        background:#000;
+        padding:15px 30px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        color:white;
+    }
+
+    .logo{
+        font-size:28px;
+        font-weight:bold;
+    }
+
+    .logo span{
+        color:red;
+    }
+
+    .nav-links a{
+        color:white;
+        text-decoration:none;
+        margin-left:25px;
+        font-size:17px;
+        font-weight:600;
+    }
+
+    .nav-links a:hover{
+        color:red;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR 
+<div class="navbar">
+    <div class="logo">Salt’n <span>Pepper</span></div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Menu</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+</body>
+</html>-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Salt'n Pepper — Mock</title>
+<style>
+  :root{
+    --bg:#0b0b0b;
+    --card:#111;
+    --accent:#e73b3b;
+    --muted:#bdbdbd;
+    --white:#fff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Header */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+    background:#000;
+    border-bottom:1px solid rgba(255,255,255,0.03);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .left, .center, .right {display:flex; align-items:center; gap:12px;}
+  .hamburger{
+    width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,0.03);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hamburger svg{width:20px;height:20px;opacity:.9}
+  .logo{
+    font-weight:700;
+    letter-spacing:1px;
+    font-size:18px;
+    color:var(--white);
+  }
+  .btn{
+    background:var(--accent);
+    color:var(--white);
+    padding:10px 14px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14px;
+    border:0;
+  }
+  .home{
+    background color:white;
+  }
+
+  /* Promo banner */
+  .promo{
+    background:linear-gradient(90deg,#66d2c9,#65c0e0);
+    padding:14px;
+    display:flex;
+    gap:14px;
+    align-items:center;
+    overflow:hidden;
+  }
+  .badge{
+    background:var(--accent);
+    color:#fff;
+    width:120px;height:120px;
+    min-width:120px;border-radius:60px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:800;font-size:20px;
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+  }
+  .badge small{font-size:12px; font-weight:600; opacity:.95}
+  .promo-content{
+    flex:1;
+    color:#012;
+    font-weight:600;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .banks{
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    opacity:.9;
+  }
+  .bank-pill{
+    background:rgba(255,255,255,0.8);
+    padding:6px 8px;border-radius:6px;font-size:12px;color:#222;font-weight:600;
+  }
+
+  /* Welcome */
+  .welcome{
+    padding:34px 18px 8px;
+    text-align:center;
+  }
+  .welcome h1{
+    margin:0;font-size:26px;letter-spacing:.6px;
+    font-weight:700;
+  }
+  .welcome p{margin:10px 0 0;color:var(--muted);max-width:900px;margin-left:auto;margin-right:auto;}
+
+  /* Carousel cards */
+  .cards-wrap{
+    padding:22px 12px 40px;
+  }
+  .cards{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding-bottom:8px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .card{
+    min-width:260px;
+    scroll-snap-align:center;
+    background:var(--card);
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 8px 18px rgba(0,0,0,.6);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:12px;
+  }
+  .card img{
+    max-width:80%;
+    height:80px;
+    object-fit:contain;
+    filter:brightness(1) saturate(0) contrast(1.2);
+  }
+  .card h3{margin:0;font-size:18px;}
+  .card p{margin:0;color:var(--muted);font-size:13px;text-align:center}
+
+  /* Order Now large CTA */
+  .cta-wrap{
+    display:flex;justify-content:center;padding:0 18px 40px;
+  }
+  .cta{
+    background:transparent;border:2px solid rgba(255,255,255,0.08);
+    color:var(--white);
+    padding:16px 36px;border-radius:40px;font-size:18px;
+    min-width:200px;text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.5);
+  }
+
+  /* Footer spacing */
+  .spacer{height:40px}
+
+  /* small-screen tweaks */
+  @media(min-width:700px){
+    .promo{padding:20px 36px;align-items:center}
+    .badge{width:140px;height:140px;min-width:140px;border-radius:70px;font-size:26px}
+    .card{min-width:320px}
+    .welcome h1{font-size:34px}
+  }
+  .btn{
+    background-color:red;
+  }
+  .home{
+    background color: white;
+  }
+  /* hide scroll bar (nice touch) */
+  .cards::-webkit-scrollbar{height:8px}
+  .cards::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:8px}
+</style>
+</head>
+<body>
+
+
+ <!-- <header class="topbar"> 
+    <div class="left">
+      <button class="hamburger" aria-label="menu">
+        simple 3-line icon
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="center" style="flex:1;justify-content:center">
+      <div class="logo">
+        Salt'n Pepper <span style="font-weight:500;color:var(--muted);font-size:12px;display:block">Restaurant</span>-->
+      </div>
+      <div class="navbar">
+      <div class="logo">Salt'n<span>
+        pepper </span></div>
+    <div class="nav-links">
+      <a href="https://saltnpepper.com.pk">Home</a>
+      <a href="https://saltnpepper.com.pk">About</a>
+      </div>
+      <div class="right">
+      <button class="order-btn"
+  <a class="home" href="https://saltnpepper.com.pk">
+  <button class="btn">Order Online</button>
+</a>
+   </div>
+    </div>
+  </header>
+
+  <!-- Promo -->
+  <section class="promo" role="region" aria-label="promo">
+    <nav class="navbar bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="images/page1.jpg" alt="Bootstrap" width="300" height="104">
+    </a>
+  </div>
+</nav>
+   <!--<div class="badge">
+      <div style="font-size:28px">Upto</div>
+      <div style="font-size:42px">50%</div>
+      <small>DISCOUNT</small>
+    </div>
+  <div class="promo-content">
+      <div style="font-weight:800;font-size:16px">ON CREDIT / DEBIT CARDS</div>
+      <div class="banks" aria-hidden="true">
+        <!-- bank "logos" as pills
+        <div class="bank-pill">BOP</div>
+        <div class="bank-pill">Bank Alfalah</div>
+        <div class="bank-pill">HBL</div>
+        <div class="bank-pill">MCB</div>
+        <div class="bank-pill">AlliedBank</div>
+        <div class="bank-pill">UBL</div>
+        <div class="bank-pill">Silkbank</div>
+      </div>
+      <div style="opacity:.8;font-size:12px;margin-top:6px">Terms apply. Call for details.</div>
+    </div>-->
+  </section>
+
+  <!-- Welcome -->
+  <section class="welcome">
+    <h1>Welcome to Salt'n Pepper Restaurants! Our Brands</h1>
+    <p>Please click our brands below for further information, reservations or to order online!</p>
+  </section>
+
+  <!-- Horizontal cards -->
+  <section class="cards-wrap" aria-label="brands">
+    <div class="cards">
+      <!-- card 1 -->
+      <article class="card" role="article">
+        <!-- placeholder logo (SVG) -->
+        <img src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' width='300' height='120'>
+            <rect width='100%' height='100%' fill='%23ffffff'/>
+            <text x='50%' y='55%' font-size='22' font-family='Arial' text-anchor='middle' fill='%23000000'>Salt'n Pepper</text>
+          </svg>" alt="Salt'n Pepper logo">
+        <h3>Salt'n Pepper Restaurant</h3>
+        <p>Classic menu of grills, continental plates & local favorites.</p>
+      </article>
+
+      <!-- card 2 -->
+      <article class="card" role="article">
+        <img src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' width='300' height='120'>
+            <rect width='100%' height='100%' fill='%23ffffff'/>
+            <text x='50%' y='55%' font-size='22' font-family='Arial' text-anchor='middle' fill='%23000000'>Cafe</text>
+          </svg>" alt="Cafe">
+        <h3>Salt'n Pepper Cafe</h3>
+        <p>Light bites, desserts and specialty coffees.</p>
+      </article>
+
+      <!-- card 3 -->
+      <article class="card" role="article">
+        <img src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' width='300' height='120'>
+            <rect width='100%' height='100%' fill='%23ffffff'/>
+            <text x='50%' y='55%' font-size='22' font-family='Arial' text-anchor='middle' fill='%23000000'>Express</text>
+          </svg>" alt="Express">
+        <h3>Salt'n Pepper Express</h3>
+        <p>Quick orders & delivery-friendly menu.</p>
+      </article>
+
+      <!-- card 4 -->
+      <article class="card" role="article">
+        <img src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' width='300' height='120'>
+            <rect width='100%' height='100%' fill='%23ffffff'/>
+            <text x='50%' y='55%' font-size='22' font-family='Arial' text-anchor='middle' fill='%23000000'>BBQ</text>
+          </svg>" alt="BBQ">
+        <h3>Salt'n Pepper BBQ</h3>
+        <p>Smoky grills and family platters.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <button class="cta">Order Now</button>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- small footer -->
+  <footer style="padding:20px;text-align:center;color:var(--muted);font-size:13px">
+    © Salt'n Pepper — mock demo
+  </footer>
+<!--<img src="images/main page.jpg "alt="main" 
+width=1000>
+<img src="images/Express.jpg"
+width="1000">
+<img src="images/jehlum.jpg"
+alt="jehlum"width="1000">
+<img src="images/Gujrat.jpg"
+alt="gujrat" width="1000">
+<img src="images/khan.jpg"
+alt="khan" width="1000">-->
+<!--<img src="images/icons.jpg"
+alt="icons" width="1000">-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salt n Pepper Express</title>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background: #000;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 450px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .image-box img{
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    h3{
+        letter-spacing: 6px;
+        color: #e63946;
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+
+    h1{
+        font-size: 28px;
+        margin: 5px 0;
+    }
+
+    .location, .phone{
+        margin-top: 15px;
+        font-size: 15px;
+        color: #ccc;
+    }
+
+    .location i, .phone i{
+        margin-right: 6px;
+    }
+
+    .btn{
+        margin-top: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        border: 2px solid #555;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn:hover{
+        border-color: #e63946;
+        color: #e63946;
+    }
+
+    .arrow{
+        background: white;
+        color: #e63946;
+        padding: 8px;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="image-box">
+        <img src="images/jehlum.jpg" alt="Restaurant Image"
+        width="990">
+    </div>
+
+    <h3>JHELUM</h3>
+
+    <h1>Salt'n Pepper Express</h1>
+
+    <div class="location">
+        <i>📍</i> Opposite Dancing Fountain Gallery 2, Citi Housing Jhelum
+    </div>
+
+    <div class="phone">
+        <i>📞</i> 0307-7675555
+    </div>
+
+    <a href="#" class="btn">
+        Get Directions <span class="arrow">➜</span>
+    </a>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salt n Pepper Express</title>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background: #000;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 450px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .image-box img{
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    h3{
+        letter-spacing: 6px;
+        color: #e63946;
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+
+    h1{
+        font-size: 28px;
+        margin: 5px 0;
+    }
+
+    .location, .phone{
+        margin-top: 15px;
+        font-size: 15px;
+        color: #ccc;
+    }
+
+    .location i, .phone i{
+        margin-right: 6px;
+    }
+
+    .btn{
+        margin-top: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        border: 2px solid #555;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn:hover{
+        border-color: #e63946;
+        color: #e63946;
+    }
+
+    .arrow{
+        background: white;
+        color: #e63946;
+        padding: 8px;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="image-box">
+        <img src="images/khan.jpg" alt="Restaurant Image">
+    </div>
+
+    <h3>GUJAR KHAN</h3>
+
+    <h1>Salt'n Pepper Express</h1>
+
+    <div class="location">
+        <i>📍</i> New Metro city Gujjar khan
+    </div>
+
+    <div class="phone">
+        <i>📞</i> 0307-7675555
+    </div>
+
+    <a href="#" class="btn">
+        Get Directions <span class="arrow">➜</span>
+    </a>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salt n Pepper Express</title>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background: #000;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 450px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .image-box img{
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    h3{
+        letter-spacing: 6px;
+        color: #e63946;
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+
+    h1{
+        font-size: 28px;
+        margin: 5px 0;
+    }
+
+    .location, .phone{
+        margin-top: 15px;
+        font-size: 15px;
+        color: #ccc;
+    }
+
+    .location i, .phone i{
+        margin-right: 6px;
+    }
+
+    .btn{
+        margin-top: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        border: 2px solid #555;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn:hover{
+        border-color: #e63946;
+        color: #e63946;
+    }
+
+    .arrow{
+        background: white;
+        color: #e63946;
+        padding: 8px;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="image-box">
+        <img src="images/gujrat.jpg" alt="Restaurant Image">
+    </div>
+
+    <h3>GUJRAT</h3>
+
+    <h1>Salt'n Pepper Express</h1>
+
+    <div class="location">
+        <i>📍</i>Service Mor,Gujrat
+    </div>
+
+    <div class="phone">
+        <i>📞</i> 0307-7675555
+    </div>
+
+    <a href="#" class="btn">
+        Get Directions <span class="arrow">➜</span>
+    </a>
+
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salt’n Pepper Footer</title>
+
+<style>
+    body{
+        margin:0;
+        background:#000;
+        font-family:Arial;
+        color:white;
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 20px;
+        background:#111;
+    }
+
+    .logo{
+        font-size:32px;
+        font-weight:bold;
+        margin-bottom:10px;
+        color:white;
+    }
+
+    .logo span{
+        color:red;
+    }
+
+    .text{
+        max-width:600px;
+        margin:auto;
+        line-height:1.6;
+        font-size:15px;
+        color:#ccc;
+    }
+
+    .links{
+        margin:20px 0;
+        font-size:14px;
+    }
+
+    .links a{
+        color:#ccc;
+        text-decoration:none;
+        margin:0 10px;
+    }
+
+    .title{
+        margin-top:25px;
+        font-size:20px;
+        font-weight:bold;
+    }
+
+    .social-icons{
+        margin:20px 0;
+    }
+
+    .social-icons span{
+        font-size:28px;
+        margin:0 10px;
+        cursor:pointer;
+    }
+
+    .store-buttons img{
+        width:180px;
+        margin:10px;
+        border-radius:8px;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="footer">
+
+    <div class="logo">Salt’n <span>Pepper</span></div>
+
+    <p class="text">
+        The Salt’n Pepper Restaurants are an example of gracious dining, outstanding service,
+        extraordinary classic and contemporary cuisine. The restaurants have become the ultimate
+        dinning destinations in Lahore. From family occasions to business dinner and moments of the
+        heart, this place is where unforgettable memories are made.
+    </p>
+
+    <div class="links">
+        <a href="https://saltnpepper.com.pk">Terms & conditions</a>
+        <a href="https://saltnpepper.com.pk">Privacy policy</a>
+    </div>
+
+    <div class="title">Site Links</div>
+
+    <div class="title">Contact Us</div>
+
+    <div class="social-icons">
+        <span>🗨️</span>
+        <span>📸</span>
+        <span>🐦</span>
+        </div>
+
+    <div class="store-buttons">
+    
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+    </div>
+
+</div>
+
+</body>
+</html>
+
+</body>
+</html>
